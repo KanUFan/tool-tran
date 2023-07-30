@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "src  fin"
+        "tools-src tools-fin";
+    grid-template-rows: auto max-content;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    gap: 20px;
+    background-image: url("th.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.source,
+.finish {
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    background: linear-gradient(
+        136.14deg,
+        rgba(0, 0, 0, 0.1) 1.17%,
+        rgba(0, 0, 0, 0.1) 99.51%
+    );
+    overflow-y: auto;
+    color: white;
+    /* backdrop-filter: blur(25px); */
+    line-height: 20px;
+    font-size: 14px;
+    padding: 14px;
+}
+
+.source:focus,
+.finish:focus {
+    outline: none;
+}
+
+.source {
+    grid-area: src;
+}
+
+.finish {
+    grid-area: fin;
+    transition: border .2s;
+}
+
+.finish.saving {
+    border-color: rgba(116, 255, 47, 0.641);
+}
+
+.tools-source,
+.tools-finish {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tools-source {
+    grid-area: tools-src;
+}
+
+.tools-finish {
+    grid-area: tools-fin;
+}
+
+.button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.2s background-color;
+    color: white;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.317);
+}
+
+.button:disabled {
+    background-color: rgba(0, 0, 0, 0.52);
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+section::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.311);
+}
+
+section::-webkit-scrollbar-thumb {
+    background-color: rgba(230, 230, 230, 0.309);
+}
