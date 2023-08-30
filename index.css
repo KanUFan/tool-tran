@@ -5,25 +5,26 @@
     box-sizing: border-box;
 }
 
-.container {
-    display: grid;
-    grid-template-areas:
-        "src  fin"
-        "tools-src tools-fin";
-    grid-template-rows: auto max-content;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100vw;
+body {
     height: 100vh;
-    padding: 20px;
-    gap: 20px;
-    background-image: url("th.jpg");
+    width: 100vw;
+    background-image: url("sneaked.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    column-gap: 20px;
+    padding: 20px;
+    background-color: #242424;
 }
 
-.source,
-.finish {
+.container {
+    flex-basis: 50%;
+    display: grid;
+    grid-template-rows: auto 40px;
+}
+
+.container__text {
     border: 1.5px solid rgba(255, 255, 255, 0.25);
     background: linear-gradient(
         136.14deg,
@@ -32,44 +33,48 @@
     );
     overflow-y: auto;
     color: white;
-    /* backdrop-filter: blur(25px); */
     line-height: 20px;
     font-size: 14px;
     padding: 14px;
+    word-break: break-word;
+    margin-bottom: 20px;
 }
 
-.source:focus,
-.finish:focus {
+.container__text:focus {
     outline: none;
 }
 
-.source {
-    grid-area: src;
+.container__text::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.311);
 }
 
-.finish {
-    grid-area: fin;
-    transition: border .2s;
+.container__text::-webkit-scrollbar-thumb {
+    background-color: rgba(230, 230, 230, 0.309);
 }
 
-.finish.saving {
+.container__text p {
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+#handled-text {
+    transition: .2s border-color;
+}
+
+#handled-text.saving {
     border-color: rgba(116, 255, 47, 0.641);
 }
 
-.tools-source,
-.tools-finish {
+.container__tools {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
-.tools-source {
-    grid-area: tools-src;
-}
-
-.tools-finish {
-    grid-area: tools-fin;
+.container__settings {
+    display: none;
 }
 
 .button {
@@ -81,6 +86,7 @@
     padding: 14px 16px;
     transition: 0.2s background-color;
     color: white;
+    width: 100px;
 }
 
 .button:hover {
@@ -92,16 +98,7 @@
     background-color: rgba(0, 0, 0, 0.52);
 }
 
-p {
-    line-height: 1.5;
-    margin-bottom: 15px;
-    font-size: 16px;
+.button .hidden {
+    display: none;
 }
 
-section::-webkit-scrollbar {
-    background-color: rgba(0, 0, 0, 0.311);
-}
-
-section::-webkit-scrollbar-thumb {
-    background-color: rgba(230, 230, 230, 0.309);
-}

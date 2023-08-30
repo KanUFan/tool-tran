@@ -2,69 +2,76 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8" />
-        <meta name="displayport" content="width=device-width, initial-scale=1.0" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta
+            name="displayport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="index.css" rel="stylesheet" />
         <title>Инструмент перевода</title>
     </head>
     <body>
-        <main class="container">
-            <section class="source" id="source"></section>
-            <section class="finish" id="finish" contenteditable></section>
-            <section class="tools-source">
+        <section class="container container__origin">
+            <div class="container__text" id="origin-text"></div>
+            <div class="container__text container__settings" id="settings"></div>
+            <div class="container__tools tools">
                 <button
-                    class="tools__layout-source button"
-                    id="display-layout-source"
+                    class="button"
+                    id="switch-display-mode-origin"
                     type="button"
+                    disabled
                 >
-                    Разметка
+                    <span>Разметка</span>
+                    <span class="hidden">Текст</span>
                 </button>
                 <button
-                    class="tools__text-source button"
-                    id="display-text-source"
+                    class="tools__picker-origin-text button"
+                    id="file-picker-origin"
                     type="button"
-                >
-                    Текст
-                </button>
-                <button
-                    class="tools__picker-source button"
-                    type="button"
-                    id="file-picker-source"
                 >
                     Выбрать
                 </button>
-            </section>
-            <section class="tools-finish">
                 <button
-                    class="tools__layout-finish button"
-                    id="display-layout-finish"
+                    class="tools__settings button"
+                    id="settings"
                     type="button"
                 >
-                    Разметка
+                    Настройки
                 </button>
+            </div>
+        </section>
+        <section class="container container__handled">
+            <div
+                class="container__text"
+                id="handled-text"
+                contenteditable
+            ></div>
+            <div class="container__tools">
                 <button
-                    class="tools__text-finish button"
-                    id="display-text-finish"
+                    class="button"
+                    id="switch-display-mode-handled"
                     type="button"
+                    disabled
                 >
-                    Текст
+                    <span>Разметка</span>
+                    <span class="hidden">Текст</span>
                 </button>
                 <button
-                    class="tools__picker-finish button"
+                    class="tools__picker-handled-text button"
+                    id="file-picker-handled"
                     type="button"
-                    id="file-picker-finish"
                 >
                     Выбрать
                 </button>
                 <button
                     class="tools__saver button"
-                    type="button"
                     id="file-saver"
+                    type="button"
                 >
                     Сохранить
                 </button>
-            </section>
-        </main>
+            </div>
+        </section>
     </body>
-    <script src="index.js"></script>
+    <script src="bundle.js"></script>
 </html>
